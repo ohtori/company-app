@@ -5,7 +5,7 @@ async function deleteGood(goodTitle: string) {
     const deleting = await Good.findOne({ title: goodTitle });
     if (!deleting) return;
     //in prod or lounched need change path 'C:/Users/Ohtori/company-app' to 'require('config').get('serverConfig.baseUrl')'
-    await require('fs').unlink('C:/Users/Ohtori/company-app' + deleting.imgURL, (err: Error) => {
+    await require('fs').unlink('C:/Users/Ohtori/company-app/client/public' + deleting.imgURL, (err: Error) => {
       if (err) {
         console.log(err.message);
       }
