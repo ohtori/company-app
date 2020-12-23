@@ -3,6 +3,7 @@ const config = require('config');
 const express = require('express');
 
 const uploadRoute = require('./routes/uploadRoute');
+const authRoute = require('./routes/authRoute');
 //For start on win32:
 //mongod --dbpath "mongo db root(bin) folder for examle '.'" --storageEngine "mmapv1"
 //For export:
@@ -11,6 +12,7 @@ const uploadRoute = require('./routes/uploadRoute');
 const app = express();
 
 app.post('/admin/upload', uploadRoute);
+app.post('/admin/auth', authRoute);
 
 const PORT = process.env.MODE === 'production' 
   ? config.get('serverConfig.HTTPPort') 

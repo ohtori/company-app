@@ -12,7 +12,7 @@ async function registerUser(user) {
         }
         ;
         const hashPassword = await bcrypt.hash(user.password, config.get("bcrypt.salt"));
-        const newUser = new User({ email: user.email, password: hashPassword, isAdmin: user.isAdmin });
+        const newUser = new User({ email: user.email, password: hashPassword, role: user.role });
         await newUser.save();
         console.log('User was created');
     }
