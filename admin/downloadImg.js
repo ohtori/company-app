@@ -5,7 +5,7 @@ const fs = require('fs');
 async function downloadImg(url) {
     const ext = require('path').extname(url);
     const imgUrl = '/img_sources/' + Date.now() + ext;
-    const file = fs.createWriteStream('./client/public' + imgUrl);
+    const file = fs.createWriteStream('./client/public/images' + imgUrl);
     await https.get(url, function (response) {
         response.pipe(file);
     });

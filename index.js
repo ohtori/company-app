@@ -1,9 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const path = require('path');
 const mongoose = require('mongoose');
 const config = require('config');
 const express = require('express');
 const uploadRoute = require('./routes/uploadRoute');
 const authRoute = require('./routes/authRoute');
+const getGoodsRouter = require('./routes/getGoodsRouter');
+const getCategoriesRouter = require('./routes/getCategoriesRouter');
 //For start on win32:
 //mongod --dbpath "mongo db root(bin) folder for examle '.'" --storageEngine "mmapv1"
 //For export:
@@ -11,6 +15,15 @@ const authRoute = require('./routes/authRoute');
 const app = express();
 app.post('/admin/upload', uploadRoute);
 app.post('/admin/auth', authRoute);
+app.get('/get-goods', getGoodsRouter);
+app.get('/get-categories', getCategoriesRouter);
+app.get('/images', express.static(path.join(__dirname, 'client', 'public')));
+if (process.env.MODE === 'production') {
+    app.use(express.static(path.join(__dirname, 'client', 'build')));
+    app.get('*', (req, res) => {
+        res.status(200).sendFile(path.join(__dirname, '/client/build/index.html'));
+    });
+}
 const PORT = process.env.MODE === 'production'
     ? config.get('serverConfig.HTTPPort')
     : config.get('serverConfig.devPort');
