@@ -7,7 +7,6 @@ async function getGoodsRouter (req: Request, res: Response) {
     const queryParams = req.query;
     const goodsLimit = + queryParams.quantity!;
     const dbReq: any = {};
-    console.log(queryParams);
 
     if (queryParams.category) {
       dbReq.category = queryParams.category;   
@@ -21,6 +20,16 @@ async function getGoodsRouter (req: Request, res: Response) {
       dbReq.gender = queryParams.male;   
     }
 
+    if (queryParams.country) {
+      dbReq.country = queryParams.country;   
+    }
+
+    if (queryParams.search) {
+      const str = String(queryParams.search);
+      const regexp = new RegExp(str);
+      dbReq.title = regexp;   
+    }
+
     if ((+queryParams.priceBy! > 0) && (+queryParams.priceBy! > +queryParams.priceFrom! )) {
       dbReq.price = { $gt: +queryParams.priceFrom!, $lt: +queryParams.priceBy! }
     }
@@ -28,6 +37,8 @@ async function getGoodsRouter (req: Request, res: Response) {
     if ((+queryParams.priceBy! > 0) && (+queryParams.priceBy! < +queryParams.priceFrom! )) {
       dbReq.price = { $gt: +queryParams.priceBy!, $lt: +queryParams.priceFrom! }
     }
+
+    console.log(dbReq);
     
 
     // if (queryParams.page) {

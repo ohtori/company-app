@@ -6,7 +6,6 @@ async function getGoodsRouter(req, res) {
         const queryParams = req.query;
         const goodsLimit = +queryParams.quantity;
         const dbReq = {};
-        console.log(queryParams);
         if (queryParams.category) {
             dbReq.category = queryParams.category;
         }
@@ -16,12 +15,21 @@ async function getGoodsRouter(req, res) {
         if (queryParams.male) {
             dbReq.gender = queryParams.male;
         }
+        if (queryParams.country) {
+            dbReq.country = queryParams.country;
+        }
+        if (queryParams.search) {
+            const str = String(queryParams.search);
+            const regexp = new RegExp(str);
+            dbReq.title = regexp;
+        }
         if ((+queryParams.priceBy > 0) && (+queryParams.priceBy > +queryParams.priceFrom)) {
             dbReq.price = { $gt: +queryParams.priceFrom, $lt: +queryParams.priceBy };
         }
         if ((+queryParams.priceBy > 0) && (+queryParams.priceBy < +queryParams.priceFrom)) {
             dbReq.price = { $gt: +queryParams.priceBy, $lt: +queryParams.priceFrom };
         }
+        console.log(dbReq);
         // if (queryParams.page) {
         //   const goods = await Good
         //     .find(dbReq)
