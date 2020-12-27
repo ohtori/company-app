@@ -1,0 +1,88 @@
+html, body, #root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: #eee;
+  font-weight: 300;
+  min-width: 320px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  outline: none;
+}
+
+.exit {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+  align-items: center;
+}
+
+.auth-form, .admin-form {
+  padding: 30px;
+  width: 300px;
+  border: 2px dashed #f38282
+}
+
+.auth-form h1, .admin-form h1 {
+  font-weight: 300;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.auth-form-field {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-form-send {
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #f38282;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 300;
+  font-family: 'Roboto';
+}
+
+.basket-form-send:hover {
+  background: #ea9696;
+}
+
+.auth-form-back {
+  display: block;
+  margin-top: 15px;
+  color: #333;
+}
+
+.validation-error {
+  border-color: red;
+  color: #f38282;
+}
+
+@media (max-width: 480px) {
+  .auth-form, .admin-form {
+    width: 270px;
+    padding: 15px;
+  }
+}
