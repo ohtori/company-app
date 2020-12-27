@@ -8,24 +8,37 @@ async function getGoodsRouter (req: Request, res: Response) {
     const goodsLimit = + queryParams.quantity!;
     const dbReq: any = {};
     console.log(queryParams);
-    
-    if (queryParams.sale) {
-      dbReq.sale = { $gt: 0 };   
-    }
 
     if (queryParams.category) {
       dbReq.category = queryParams.category;   
     }
 
-    if (queryParams.page) {
-      const goods = await Good
-        .find(dbReq)
-        .limit(goodsLimit)
-        .skip((+queryParams.page - 1 ) * goodsLimit);
-    } else {
-      const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 });
-      res.status(200).json(goods);
+    if (queryParams.sale) {
+      dbReq.sale = { $gt: 0 };   
     }
+
+    if (queryParams.male) {
+      dbReq.gender = queryParams.male;   
+    }
+
+    if ((+queryParams.priceBy! > 0) && (+queryParams.priceBy! > +queryParams.priceFrom! )) {
+      dbReq.price = { $gt: +queryParams.priceFrom!, $lt: +queryParams.priceBy! }
+    }
+
+    if ((+queryParams.priceBy! > 0) && (+queryParams.priceBy! < +queryParams.priceFrom! )) {
+      dbReq.price = { $gt: +queryParams.priceBy!, $lt: +queryParams.priceFrom! }
+    }
+    
+
+    // if (queryParams.page) {
+    //   const goods = await Good
+    //     .find(dbReq)
+    //     .limit(goodsLimit)
+    //     .skip((+queryParams.page - 1 ) * goodsLimit);
+    // }
+    const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 });
+    res.status(200).json(goods);
+    
   } catch (e) {
     res.status(500).json({ message: 'Ошибка сервера, попробуйте позже', isError: true });
   } 

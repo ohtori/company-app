@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const { Schema, model, Types } = require('mongoose');
 const GoodSchema = new Schema({
     title: { type: String, required: true },
-    producer: { type: String },
+    gender: { type: String },
     country: { type: String },
     desc: { type: String },
     category: { type: Types.ObjectId, ref: 'Category' },
