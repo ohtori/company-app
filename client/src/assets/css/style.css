@@ -618,6 +618,32 @@ html, body, #root {
   cursor: pointer;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination li {
+  margin: 0 10px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 5px 0;
+  width: 30px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  line-height: 1.2em;
+}
+
+.pagination li.active a {
+  box-shadow: none;
+  color: #333;
+  font-size: 20px;
+}
+
 .footer {
   margin-top: auto;
   box-shadow: 0px -2px 5px rgba(0,0,0,0.2);

@@ -5,8 +5,7 @@ import { GoodRequestContext } from '../../pages/Main';
 export default function SidebarSelect({ title, stateProperty, options }: ISelectProps): JSX.Element {
   const { setGoodListState } = useContext(GoodRequestContext);
   const [active, setActive] = useState(false);
-  const [selectTitle, setSelectTitle] = useState('Не выбрано');
-  
+  const [selectTitle, setSelectTitle] = useState('Не выбрано');  
   
   const toggleSelect = (e: BaseSyntheticEvent) => {
     e.preventDefault();
@@ -18,7 +17,11 @@ export default function SidebarSelect({ title, stateProperty, options }: ISelect
     setTimeout(setGoodListState((prev: IGoodListState) => {
       return {...prev, [stateProperty]: option, searchValue: ''}
     }), 1000)
-    setSelectTitle(option);
+    if (option) {
+      setSelectTitle(option);
+    } else {
+      setSelectTitle('Любой(ая)');
+    }
     setActive(!active);
   }
 
@@ -30,6 +33,7 @@ export default function SidebarSelect({ title, stateProperty, options }: ISelect
         { options.map((option: string) => {
           return <li key={ option }><a href="/" onClick={e => {selectHandler(e, option)}}>{ option }</a></li>
         }) }
+        <li key={ 'lyuboy' }><a href="/" onClick={e => {selectHandler(e, '')}}>{'Любой(ая)'}</a></li>
       </ul>
     </div>
   )

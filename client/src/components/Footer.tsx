@@ -20,7 +20,7 @@ export default function Footer(): JSX.Element {
       </section>
       <section className="footer-bottom">
         <div className="resize">
-          <p className="copyright">© «Company Entertainment» 2002—2020.<br /> Внимание! Данное приложение не является коммерческим продуктом, вся представленная информация является вымышленой.</p>
+          <p className="copyright">© «Company Entertainment» 2002—2020.<br /> Внимание! Данное приложение не является коммерческим продуктом, вся представленная информация является вымышленной.</p>
           <a href="/" className="created"><em>by Ohtori</em></a>
         </div>
       </section>

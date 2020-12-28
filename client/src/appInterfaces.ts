@@ -87,7 +87,8 @@ export interface ICheckboxProps {
 
 export interface IGoodListState {
   category: string, 
-  page: string, 
+  page: number, 
+  isFilter: boolean
   male: string,
   country: string,
   quantity: string,

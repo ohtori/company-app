@@ -9,6 +9,7 @@ import MainCategories from '../components/MainCategories';
 import GoodList from '../components/GoodList';
 import { IGoodListParams } from '../appInterfaces';
 import '../assets/css/style.css';
+import Pagination from '../components/Pagination';
 
 export const GoodRequestContext = createContext({} as IGoodListParams);
 
@@ -17,7 +18,8 @@ export default function Main(): JSX.Element {
   const [goodListState, setGoodListState] = useState({
     category: '',
     quantity: '21',
-    page: '1', 
+    page: 1, 
+    isFilter: false,
     male: '',
     country: '',
     price: {
@@ -57,11 +59,13 @@ export default function Main(): JSX.Element {
               <Route path="/categories">
                 <section className="content">
                   <GoodList />
+                  <Pagination />
                 </section>
               </Route>
               <Route path="/search">
                 <section className="content">
-                  <GoodList title="Результаты поиска" />
+                  <GoodList title="Результаты поиска по запросу" />
+                  <Pagination />
                 </section>
               </Route>
             </div>

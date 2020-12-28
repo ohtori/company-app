@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { query, Request, Response } from 'express';
 
 const Good = require('../models/Good');
 
@@ -36,22 +36,23 @@ async function getGoodsRouter (req: Request, res: Response) {
 
     if ((+queryParams.priceBy! > 0) && (+queryParams.priceBy! < +queryParams.priceFrom! )) {
       dbReq.price = { $gt: +queryParams.priceBy!, $lt: +queryParams.priceFrom! }
+    }    
+
+    if (queryParams.pagination) {
+      const goods = await Good.countDocuments(dbReq);
+      return res.status(200).json(goods);
     }
-
-    console.log(dbReq);
+    console.log(queryParams);
     
-
-    // if (queryParams.page) {
-    //   const goods = await Good
-    //     .find(dbReq)
-    //     .limit(goodsLimit)
-    //     .skip((+queryParams.page - 1 ) * goodsLimit);
-    // }
+    if (queryParams.page && +queryParams.page > 1) {
+      const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 }).skip((+queryParams.page - 1 ) * goodsLimit);;
+      return res.status(200).json(goods);
+    }
     const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 });
-    res.status(200).json(goods);
+    return res.status(200).json(goods);
     
   } catch (e) {
-    res.status(500).json({ message: 'Ошибка сервера, попробуйте позже', isError: true });
+    return res.status(500).json({ message: 'Ошибка сервера, попробуйте позже', isError: true });
   } 
 }
 

@@ -17,12 +17,13 @@ export default function Searsh(): JSX.Element {
 
   const submitHandler = (e: BaseSyntheticEvent) => {
     e.preventDefault();
+    setSearch('');
     history.push('/search');
     setGoodListState((prev: IGoodListState) => {
       return {
         category: '',
         quantity: '21',
-        page: '1', 
+        page: 1, 
         male: '',
         country: '',
         price: {
@@ -34,6 +35,8 @@ export default function Searsh(): JSX.Element {
         goods: []
       };
     });
+    console.log(e.target[0].value = '');
+    
   }
   
 
