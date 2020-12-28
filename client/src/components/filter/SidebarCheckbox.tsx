@@ -10,7 +10,7 @@ export default function SidebarCheckbox({ title, stateProperty, label }: ICheckb
     e.preventDefault();
     setActive(!active);
     setGoodListState((prev: IGoodListState) => {
-      return { ...prev, [stateProperty]: !prev.sale, searchValue: '' };
+      return { ...prev, [stateProperty]: !prev.sale, searchValue: '', page: 1 };
     });
   }
   

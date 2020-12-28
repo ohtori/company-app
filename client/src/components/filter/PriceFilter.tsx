@@ -14,7 +14,7 @@ export default function SidebaFilter(): JSX.Element {
       return { ...prev, [e.target.name]: e.target.value }
     });
     setGoodListState((prev: IGoodListState) => {
-      return { ...prev, price: { ...prev.price, [e.target.name]: e.target.value }, searchValue: ''};
+      return { ...prev, price: { ...prev.price, [e.target.name]: e.target.value }, searchValue: '', page: 1};
     });
   }
 

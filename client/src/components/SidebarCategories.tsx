@@ -17,7 +17,7 @@ export default function SidebarCategories({ title }: ISidebarCategories): JSX.El
 
   const setGoodListCategory = (category: string) => {
     setGoodListState((prev: IGoodListState) => {
-      return {...prev, category, searchValue: ''}
+      return {...prev, category, searchValue: '', page: 1}
     });
   }
 

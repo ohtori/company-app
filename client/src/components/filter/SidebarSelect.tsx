@@ -15,7 +15,7 @@ export default function SidebarSelect({ title, stateProperty, options }: ISelect
   const selectHandler = (e: BaseSyntheticEvent, option: string) => {    
     e.preventDefault();
     setTimeout(setGoodListState((prev: IGoodListState) => {
-      return {...prev, [stateProperty]: option, searchValue: ''}
+      return {...prev, [stateProperty]: option, searchValue: '', page: 1}
     }), 1000)
     if (option) {
       setSelectTitle(option);
