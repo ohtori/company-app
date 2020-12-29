@@ -51,20 +51,13 @@ export interface IUser {
   role: string
 }
 
-//Props types
+//Props interfaces
 export interface IGoodInList {
   good: IGood
 };
 
 export interface ISidebarCategories {
   title: string
-};
-
-export interface IGoodListParams {
-  goodListState: IGoodListState
-  setGoodListState: Function
-  isFilter: boolean
-  setIsFilter: Function
 };
 
 export interface IGoodListProps {
@@ -85,6 +78,32 @@ export interface ICheckboxProps {
   stateProperty: string
 }
 
+export interface IBasketGoodProps {
+  good: IGood
+  setTotalPrice: Function
+  setBasketGoods: Function
+  basketGoods: IBasketGood[]
+}
+
+export interface IBasketGood {
+  title: string
+  amount: number
+}
+
+//Context interfaces
+export interface IGoodListContext {
+  goodListState: IGoodListState
+  setGoodListState: Function
+  isFilter: boolean
+  setIsFilter: Function
+};
+
+export interface IBasketContext {
+  basketState: IGood[]
+  setBasketState: Function
+}
+
+//good interfaces
 export interface IGoodListState {
   category: string, 
   page: number, 

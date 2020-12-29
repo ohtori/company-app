@@ -1,15 +1,15 @@
-import { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
+import { BaseSyntheticEvent, useCallback, useContext, useEffect, useState } from "react";
 import { IGoodListState } from "../appInterfaces";
 import createRequestQuery from "../helpers/createRequestQuery";
 import { GoodRequestContext } from "../pages/Main";
 
 export default function Pagination(): JSX.Element | null {
-  const [pages, setPages] = useState<any>([]);
+  const [pages, setPages] = useState<JSX.Element[]>([]);
   const { goodListState, setGoodListState } = useContext(GoodRequestContext);
   let reqParams = createRequestQuery('Some String', false, goodListState);
   reqParams += '&pagination=true';  
 
-  const clickHandler = (e: BaseSyntheticEvent, operation: string, value?: number) => {
+  const clickHandler = useCallback((e: BaseSyntheticEvent, operation: string, value?: number) => {
     e.preventDefault();
     switch (operation) {
       case 'min':
@@ -38,7 +38,7 @@ export default function Pagination(): JSX.Element | null {
       default:
         break;
     }
-  }
+  }, [goodListState.page, pages.length, setGoodListState])
   
   useEffect(() => {
     fetch(`/get-goods?${reqParams}`)
@@ -57,7 +57,7 @@ export default function Pagination(): JSX.Element | null {
         setPages(fetchedPages);
       })
       .catch(e => console.log(e.message));
-  }, [goodListState]);
+  }, [goodListState, clickHandler, reqParams]);
   
   return (
     pages.length > 1 
