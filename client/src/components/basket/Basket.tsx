@@ -4,11 +4,9 @@ import { BasketContext } from "../../pages/Main";
 import BasketGood from "./BasketGood";
 
 export default function Basket(): JSX.Element {
-  const { basketState, setBasketState } = useContext(BasketContext);
+  const { basketState } = useContext(BasketContext);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [ basketGoods, setBasketGoods ] = useState([]);
-  console.log(basketGoods);
-  
+  const [ basketGoods, setBasketGoods ] = useState([]); 
   
   return (
     <>

@@ -565,6 +565,7 @@ html, body, #root {
   background: url(../images/close-24px.svg);
   margin-left: 20px;
   min-width: 25px;
+  cursor: pointer;
 }
 
 .basket-total {
