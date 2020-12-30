@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { IGood } from "../../appInterfaces";
 import { BasketContext } from "../../pages/Main";
+import BasketForm from "./BasketForm";
 import BasketGood from "./BasketGood";
 
 export default function Basket(): JSX.Element {
   const { basketState } = useContext(BasketContext);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [ basketGoods, setBasketGoods ] = useState([]); 
+  const [ basketGoods, setBasketGoods ] = useState([]);  
   
   return (
     <>
@@ -32,19 +33,7 @@ export default function Basket(): JSX.Element {
           <p className="basket-total-finaly">Итого:</p>
           <div className="basket-total-price">{ totalPrice }<span className="currency">₽</span></div>
         </div>
-        {/* <form action="/" method="POST" className="basket-form">
-          <h2>Контактные данные:</h2>
-          <div>
-            <input type="text" name="name" placeholder="Ваше имя" className="basket-form-field" />
-          </div>
-          <div>
-            <input type="text" name="phone" placeholder="Ваш телефон" className="basket-form-field" />
-          </div>
-          <div>
-            <input type="text" name="email" placeholder="Ваш e-mail" className="basket-form-field" />
-          </div>
-          <button className="basket-form-send">Оформить заказ</button>
-        </form> */}
+        <BasketForm basketGoods={basketGoods} totalPrice={totalPrice} />
       </div>
     </>
   );

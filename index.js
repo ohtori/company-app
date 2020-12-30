@@ -6,6 +6,7 @@ const config = require('config');
 const express = require('express');
 const uploadRoute = require('./routes/uploadRoute');
 const authRoute = require('./routes/authRoute');
+const basketRoute = require('./routes/basketRoute');
 const getGoodsRouter = require('./routes/getGoodsRouter');
 const getCategoriesRouter = require('./routes/getCategoriesRouter');
 //For start on win32:
@@ -15,6 +16,7 @@ const getCategoriesRouter = require('./routes/getCategoriesRouter');
 const app = express();
 app.post('/admin/upload', uploadRoute);
 app.post('/admin/auth', authRoute);
+app.post('/basket', basketRoute);
 app.get('/get-goods', getGoodsRouter);
 app.get('/get-categories', getCategoriesRouter);
 app.get('/images', express.static(path.join(__dirname, 'client', 'public')));

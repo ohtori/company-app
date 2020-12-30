@@ -85,6 +85,11 @@ export interface IBasketGoodProps {
   basketGoods: IBasketGood[]
 }
 
+export interface IBasketFormProps {
+  basketGoods: IBasketGood[]
+  totalPrice: number
+}
+
 export interface IBasketGood {
   title: string
   amount: number
@@ -118,4 +123,10 @@ export interface IGoodListState {
   sale: boolean,
   searchValue: string,
   goods: any[]
+}
+
+export interface IBasketFormState {
+  name: string
+  phone: string
+  email: string
 }

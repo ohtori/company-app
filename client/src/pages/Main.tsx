@@ -33,6 +33,9 @@ export default function Main(): JSX.Element {
     searchValue: '',
     goods: []
   });
+
+  console.log(basketState);
+  
   
   
   return (
