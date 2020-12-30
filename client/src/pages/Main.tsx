@@ -10,6 +10,7 @@ import GoodList from '../components/GoodList';
 import Basket from '../components/basket/Basket';
 import { IBasketContext, IGood, IGoodListContext } from '../appInterfaces';
 import Pagination from '../components/Pagination';
+import Good from '../components/Good';
 import '../assets/css/style.css';
 
 export const GoodRequestContext = createContext({} as IGoodListContext);
@@ -33,11 +34,7 @@ export default function Main(): JSX.Element {
     searchValue: '',
     goods: []
   });
-
-  console.log(basketState);
-  
-  
-  
+ 
   return (
     <>
       <Header />
@@ -63,10 +60,15 @@ export default function Main(): JSX.Element {
                     <GoodList title="Акции и скидки" quantity="6" sale={true} />
                   </section>
                 </Route>
-                <Route path="/categories">
+                <Route path="/categories/:category">
                   <section className="content">
                     <GoodList />
                     <Pagination />
+                  </section>
+                </Route>
+                <Route path="/goods/:goodID">
+                  <section className="content">
+                    <Good />
                   </section>
                 </Route>
                 <Route path="/search">

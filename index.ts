@@ -9,7 +9,9 @@ const uploadRoute = require('./routes/uploadRoute');
 const authRoute = require('./routes/authRoute');
 const basketRoute = require('./routes/basketRoute');
 const getGoodsRouter = require('./routes/getGoodsRouter');
+const goodRouter = require('./routes/goodRouter');
 const getCategoriesRouter = require('./routes/getCategoriesRouter');
+
 //For start on win32:
 //mongod --dbpath "mongo db root(bin) folder for examle '.'" --storageEngine "mmapv1"
 //For export:
@@ -21,6 +23,7 @@ app.post('/admin/upload', uploadRoute);
 app.post('/admin/auth', authRoute);
 app.post('/basket', basketRoute);
 
+app.get('/good', goodRouter);
 app.get('/get-goods', getGoodsRouter);
 app.get('/get-categories', getCategoriesRouter);
 app.get('/images', express.static(path.join(__dirname, 'client', 'public')));

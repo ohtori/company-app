@@ -1,4 +1,4 @@
-import { query, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 const Good = require('../models/Good');
 
@@ -42,7 +42,6 @@ async function getGoodsRouter (req: Request, res: Response) {
       const goods = await Good.countDocuments(dbReq);
       return res.status(200).json(goods);
     }
-    console.log(queryParams);
     
     if (queryParams.page && +queryParams.page > 1) {
       const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 }).skip((+queryParams.page - 1 ) * goodsLimit);;

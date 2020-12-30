@@ -33,7 +33,6 @@ async function getGoodsRouter(req, res) {
             const goods = await Good.countDocuments(dbReq);
             return res.status(200).json(goods);
         }
-        console.log(queryParams);
         if (queryParams.page && +queryParams.page > 1) {
             const goods = await Good.find(dbReq).limit(goodsLimit).select('-desc').sort({ price: 1 }).skip((+queryParams.page - 1) * goodsLimit);
             ;

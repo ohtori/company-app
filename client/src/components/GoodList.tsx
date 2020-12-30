@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useRouteMatch } from "react-router-dom";
 import { IGoodListProps, IGoodListState } from "../appInterfaces";
 import createRequestQuery from "../helpers/createRequestQuery";
 import { GoodRequestContext } from "../pages/Main";
@@ -9,7 +9,7 @@ import PageLoader from "./Loader";
 export default function GoodList({ title, quantity, sale }: IGoodListProps): JSX.Element {
   const [loading, setLoading] = useState(true);
   const { goodListState, setGoodListState, isFilter, setIsFilter } = useContext(GoodRequestContext);
-  const loadableTitle = useLocation().pathname.match(/(?:\/categories\/)+(?:[/]?[^]+\/)*?([^/]+$)/);
+  const loadableTitle = useRouteMatch().params as { category: string};
   
   if (goodListState.searchValue) {
     title += ` "${goodListState.searchValue}"`;
@@ -33,7 +33,7 @@ export default function GoodList({ title, quantity, sale }: IGoodListProps): JSX
 
   return (
     <>
-      <h1>{ title || loadableTitle![1] || ' ' }</h1>
+      <h1>{ title || loadableTitle.category || ' ' }</h1>
       <div className="resize">
       {loading 
         ? <PageLoader />

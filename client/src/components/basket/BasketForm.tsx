@@ -16,7 +16,7 @@ export default function BasketForm({ basketGoods, totalPrice }: IBasketFormProps
 
   useEffect(() => {
     setFormState({ name: '', phone: '', email: '', goods: basketGoods, totalPrice: totalPrice});
-  }, [])
+  }, [basketGoods, totalPrice])
 
   const submitHandler = async (e: BaseSyntheticEvent) => {
     e.preventDefault();

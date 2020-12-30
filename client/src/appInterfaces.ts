@@ -34,7 +34,7 @@ export interface IGood {
   imgURL: string
   price: number
   sale: number,
-  operation: string
+  operation: string,
 }
 
 export interface ICategory {

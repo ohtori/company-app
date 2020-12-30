@@ -17,7 +17,7 @@ export default function GooInList({good}: IGoodInList): JSX.Element {
   return (
     <>
       <div className="good-item">
-        <a href={`goods/${good._id}`} className="good-image-wrap">
+        <a href={`/goods/${good._id}`} className="good-image-wrap">
           <img src={`/images${good.imgURL}`} alt={good.title} />
         </a>
         <a href={`goods/${good._id}`} className="good-title">{good.title}</a>
