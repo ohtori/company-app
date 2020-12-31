@@ -33,7 +33,7 @@ export default function Basket(): JSX.Element {
           <p className="basket-total-finaly">Итого:</p>
           <div className="basket-total-price">{ totalPrice }<span className="currency">₽</span></div>
         </div>
-        <BasketForm basketGoods={basketGoods} totalPrice={totalPrice} />
+        <BasketForm setBasketGoods={setBasketGoods} basketGoods={basketGoods} totalPrice={totalPrice} />
       </div>
     </>
   );

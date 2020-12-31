@@ -87,7 +87,8 @@ export interface IBasketGoodProps {
 
 export interface IBasketFormProps {
   basketGoods: IBasketGood[]
-  totalPrice: number
+  totalPrice: number,
+  setBasketGoods: Function
 }
 
 export interface IBasketGood {

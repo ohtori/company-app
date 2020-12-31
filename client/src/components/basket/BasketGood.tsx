@@ -40,7 +40,7 @@ export default function BasketGood({ good, setTotalPrice, basketGoods, setBasket
 
   useEffect(() => {
     setTotalPrice((prev: number) => prev + (amount * good.price));
-    setBasketGoods((prev: []) => [...prev, {title: good.title, amount: amount}]);
+    setBasketGoods((prev: []) => [...prev, {title: good.title, amount: amount, price: good.price}]);
     localStorage.setItem('basket', JSON.stringify(basketState));
   }, []);
 

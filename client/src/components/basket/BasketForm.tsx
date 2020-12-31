@@ -3,11 +3,13 @@ import { IBasketFormProps } from "../../appInterfaces";
 import basketFormValidate from "../../helpers/basketFormValidate";
 import { BasketContext } from "../../pages/Main";
 
-export default function BasketForm({ basketGoods, totalPrice }: IBasketFormProps ): JSX.Element {
+export default function BasketForm({ basketGoods, totalPrice, setBasketGoods }: IBasketFormProps ): JSX.Element {
   const [ formState, setFormState] = useState({ name: '', phone: '', email: '', goods: basketGoods, totalPrice: totalPrice});
   const [ formError, setFormError ] = useState({ nameError: '', phoneError: '', emailError: '', serverMessage: '' });
   const { setBasketState } = useContext(BasketContext);
+  console.log(basketGoods);
   
+
   const inputHandler = (e: BaseSyntheticEvent) => {
     setFormState((prev) => {
       return { ...prev, [e.target.name]: e.target.value }
@@ -49,9 +51,8 @@ export default function BasketForm({ basketGoods, totalPrice }: IBasketFormProps
     });
 
     setBasketState([]);
-
+    setBasketGoods([]);
     localStorage.removeItem('basket');
-
   }
 
   return (
