@@ -1,19 +1,15 @@
-import { BaseSyntheticEvent, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ICategory, IGoodListState, ISidebarCategories } from '../appInterfaces';
+import useToggleHide from '../hooks/useToggleHide';
 import { GoodRequestContext } from '../pages/Main';
 import PageLoader from './Loader';
 
 export default function SidebarCategories({ title }: ISidebarCategories): JSX.Element {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useToggleHide(true);
   const { setGoodListState } = useContext(GoodRequestContext);
-
-  const toggleSelect = (e: BaseSyntheticEvent) => {
-    e.preventDefault();
-    setActive(!active);
-  }
 
   const setGoodListCategory = (category: string) => {
     setGoodListState((prev: IGoodListState) => {
@@ -33,7 +29,7 @@ export default function SidebarCategories({ title }: ISidebarCategories): JSX.El
 
   return (
     <div className={`select ${active ? 'active' : ''}`}>
-      <a href="/" onClick={toggleSelect} className="select-btn">{title}<span className="select-btn-arrow"></span></a>
+      <a href="/" onClick={setActive} className="select-btn">{title}<span className="select-btn-arrow"></span></a>
       <ul className="select-list">
         {loading 
           ? <PageLoader />

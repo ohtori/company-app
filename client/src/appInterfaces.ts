@@ -124,6 +124,7 @@ export interface IGoodListState {
   sale: boolean,
   searchValue: string,
   goods: any[]
+  [x: string]: any
 }
 
 export interface IBasketFormState {

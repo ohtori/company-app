@@ -1,7 +1,6 @@
 import { BaseSyntheticEvent, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { IGoodListState } from "../appInterfaces";
-import { GoodRequestContext } from "../pages/Main";
+import { GoodRequestContext, initialGoodListState } from "../pages/Main";
 
 export default function Searsh(): JSX.Element {
   const [ search, setSearch ] = useState('');
@@ -19,24 +18,9 @@ export default function Searsh(): JSX.Element {
     e.preventDefault();
     setSearch('');
     history.push('/search');
-    setGoodListState((prev: IGoodListState) => {
-      return {
-        category: '',
-        quantity: '21',
-        page: 1, 
-        male: '',
-        country: '',
-        price: {
-          from: '0',
-          by: '0'
-        },
-        sale: false,
-        searchValue: search,
-        goods: []
-      };
-    });
-    console.log(e.target[0].value = '');
-    
+    setGoodListState(() => {
+      return { ...initialGoodListState, searchValue: search };
+    });    
   }
   
 

@@ -1,7 +1,7 @@
+import { useContext } from "react";
 import SidebarSelect from "./SidebarSelect";
 import PriceFilter from "./PriceFilter";
 import SidebaCheckbox from "./SidebarCheckbox";
-import { useContext } from "react";
 import { GoodRequestContext } from "../../pages/Main";
 
 export default function SidebaFilter(): JSX.Element {

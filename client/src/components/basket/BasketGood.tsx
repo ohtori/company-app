@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IBasketGood, IBasketGoodProps, IGood } from "../../appInterfaces";
 import { BasketContext } from "../../pages/Main";
 
-export default function BasketGood({ good, setTotalPrice, basketGoods, setBasketGoods }: IBasketGoodProps, ): JSX.Element {
+export default function BasketGood({ good, setTotalPrice, setBasketGoods }: IBasketGoodProps, ): JSX.Element {
   const { basketState, setBasketState } = useContext(BasketContext);
   const [amount, setAmount] = useState(1);
   

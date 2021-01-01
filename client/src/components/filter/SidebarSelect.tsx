@@ -1,16 +1,12 @@
 import { BaseSyntheticEvent, useContext, useState } from 'react';
 import { IGoodListState, ISelectProps } from '../../appInterfaces';
+import useToggleHide from '../../hooks/useToggleHide';
 import { GoodRequestContext } from '../../pages/Main';
 
 export default function SidebarSelect({ title, stateProperty, options }: ISelectProps): JSX.Element {
   const { setGoodListState } = useContext(GoodRequestContext);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useToggleHide(false);
   const [selectTitle, setSelectTitle] = useState('Не выбрано');  
-  
-  const toggleSelect = (e: BaseSyntheticEvent) => {
-    e.preventDefault();
-    setActive(!active);
-  }
 
   const selectHandler = (e: BaseSyntheticEvent, option: string) => {    
     e.preventDefault();
@@ -22,13 +18,13 @@ export default function SidebarSelect({ title, stateProperty, options }: ISelect
     } else {
       setSelectTitle('Любой(ая)');
     }
-    setActive(!active);
+    setActive(e);
   }
 
   return (
     <div className={`select ${active ? 'active' : ''}`}>
       <h4>{ title }:</h4>
-      <a href="/" onClick={toggleSelect} className="select-btn">{ selectTitle }<span className="select-btn-arrow"></span></a>
+      <a href="/" onClick={setActive} className="select-btn">{ selectTitle }<span className="select-btn-arrow"></span></a>
       <ul className="select-list">
         { options.map((option: string) => {
           return <li key={ option }><a href="/" onClick={e => {selectHandler(e, option)}}>{ option }</a></li>

@@ -16,24 +16,26 @@ import '../assets/css/style.css';
 export const GoodRequestContext = createContext({} as IGoodListContext);
 export const BasketContext = createContext({} as IBasketContext);
 
+export const initialGoodListState = {
+  category: '',
+  quantity: '21',
+  page: 1, 
+  isFilter: false,
+  male: '',
+  country: '',
+  price: {
+    from: '0',
+    by: '0'
+  },
+  sale: false,
+  searchValue: '',
+  goods: []
+}
+
 export default function Main(): JSX.Element {
   const [isFilter, setIsFilter] = useState(false);
   const [basketState, setBasketState] = useState<IGood[]>([]);
-  const [goodListState, setGoodListState] = useState({
-    category: '',
-    quantity: '21',
-    page: 1, 
-    isFilter: false,
-    male: '',
-    country: '',
-    price: {
-      from: '0',
-      by: '0'
-    },
-    sale: false,
-    searchValue: '',
-    goods: []
-  });
+  const [goodListState, setGoodListState] = useState(initialGoodListState);
  
   return (
     <>
