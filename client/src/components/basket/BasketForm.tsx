@@ -7,8 +7,6 @@ export default function BasketForm({ basketGoods, totalPrice, setBasketGoods }: 
   const [ formState, setFormState] = useState({ name: '', phone: '', email: '', goods: basketGoods, totalPrice: totalPrice});
   const [ formError, setFormError ] = useState({ nameError: '', phoneError: '', emailError: '', serverMessage: '' });
   const { setBasketState } = useContext(BasketContext);
-  console.log(basketGoods);
-  
 
   const inputHandler = (e: BaseSyntheticEvent) => {
     setFormState((prev) => {

@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useRouteMatch } from "react-router-dom";
 import { IGoodListProps, IGoodListState } from "../appInterfaces";
 import createRequestQuery from "../helpers/createRequestQuery";
+import setCategory from "../helpers/setCategory";
 import { GoodRequestContext } from "../pages/Main";
 import GoodInList from './GoodInList';
 import PageLoader from "./Loader";
@@ -10,7 +11,18 @@ export default function GoodList({ title, quantity, sale }: IGoodListProps): JSX
   const [loading, setLoading] = useState(true);
   const { goodListState, setGoodListState, isFilter, setIsFilter } = useContext(GoodRequestContext);
   const loadableTitle = useRouteMatch().params as { category: string};
+  const path = useLocation().pathname;
+  const prevPath = useRef(path);
+
+  if (path !== prevPath.current) {
+    setCategory(loadableTitle.category, setGoodListState);
+    prevPath.current = path;
+  }  
   
+  if (!goodListState.category && loadableTitle.category) {
+    setCategory(loadableTitle.category, setGoodListState);
+  }
+
   if (goodListState.searchValue) {
     title += ` "${goodListState.searchValue}"`;
   }
@@ -29,6 +41,7 @@ export default function GoodList({ title, quantity, sale }: IGoodListProps): JSX
       })
       .catch(e => setLoading(false));
   }, [goodListState.category, goodListState.searchValue, goodListState.page, isFilter, setGoodListState, setIsFilter]);
+
   
 
   return (

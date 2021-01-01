@@ -10,6 +10,7 @@ const basketRoute = require('./routes/basketRoute');
 const getGoodsRouter = require('./routes/getGoodsRouter');
 const goodRouter = require('./routes/goodRouter');
 const getCategoriesRouter = require('./routes/getCategoriesRouter');
+const getCategoryRouter = require('./routes/getCategoryRouter');
 //For start on win32:
 //mongod --dbpath "mongo db root(bin) folder for examle '.'" --storageEngine "mmapv1"
 //For export:
@@ -21,6 +22,7 @@ app.post('/basket', basketRoute);
 app.get('/good', goodRouter);
 app.get('/get-goods', getGoodsRouter);
 app.get('/get-categories', getCategoriesRouter);
+app.get('/get-category', getCategoryRouter);
 app.get('/images', express.static(path.join(__dirname, 'client', 'public')));
 if (process.env.MODE === 'production') {
     app.use(express.static(path.join(__dirname, 'client', 'build')));
