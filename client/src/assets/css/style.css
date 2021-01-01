@@ -740,6 +740,9 @@ html, body, #root {
 
   .sidebar.hidden .hide-sidebar {
     left: 0;
+    transform: rotate(0deg);
+    border: 1px solid #ccc;
+    border-left: 0;
   }
 
   .content-wrap {
