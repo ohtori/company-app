@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { IGood, IGoodInList } from "../appInterfaces";
-import { BasketContext } from "../pages/Main";
+import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { IGood, IGoodInList } from 'company-app';
+import { BasketContext } from '../pages/Main';
 
 
 export default function GooInList({good}: IGoodInList): JSX.Element {

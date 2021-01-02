@@ -1,4 +1,4 @@
-import { IAuth, IAuthErrors } from "../appInterfaces";
+import { IAuth, IAuthErrors } from 'company-app';
 
 export default function authFormValidate(authState: IAuth, setAuthErrors: React.Dispatch<React.SetStateAction<IAuthErrors>> ) {
   let isValid = true;

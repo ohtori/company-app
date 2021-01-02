@@ -1,11 +1,11 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { useLocation, useRouteMatch } from "react-router-dom";
-import { IGoodListProps, IGoodListState } from "../appInterfaces";
-import createRequestQuery from "../helpers/createRequestQuery";
-import setCategory from "../helpers/setCategory";
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useLocation, useRouteMatch } from 'react-router-dom';
+import { IGoodListProps, IGoodListState } from 'company-app';
+import createRequestQuery from '../helpers/createRequestQuery';
+import setCategory from '../helpers/setCategory';
 import { GoodRequestContext } from "../pages/Main";
 import GoodInList from './GoodInList';
-import PageLoader from "./Loader";
+import PageLoader from './Loader';
 
 export default function GoodList({ title, quantity, sale }: IGoodListProps): JSX.Element {
   const [loading, setLoading] = useState(true);

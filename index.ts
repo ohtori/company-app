@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 
 const path = require('path');
 const mongoose = require('mongoose');

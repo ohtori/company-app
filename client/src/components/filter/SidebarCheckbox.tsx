@@ -1,6 +1,6 @@
-import { BaseSyntheticEvent, useContext, useState } from "react";
-import { ICheckboxProps, IGoodListState } from "../../appInterfaces";
-import { GoodRequestContext } from "../../pages/Main";
+import { BaseSyntheticEvent, useContext, useState } from 'react';
+import { ICheckboxProps, IGoodListState } from 'company-app';
+import { GoodRequestContext } from '../../pages/Main';
 
 export default function SidebarCheckbox({ title, stateProperty, label }: ICheckboxProps ): JSX.Element {
   const [active, setActive] = useState(false);

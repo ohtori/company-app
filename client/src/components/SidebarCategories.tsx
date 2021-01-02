@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ICategory, IGoodListState, ISidebarCategories } from '../appInterfaces';
+import { ICategory, IGoodListState, ISidebarCategories } from 'company-app';
 import useToggleHide from '../hooks/useToggleHide';
 import { GoodRequestContext } from '../pages/Main';
 import PageLoader from './Loader';

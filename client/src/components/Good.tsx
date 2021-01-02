@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import { useRouteMatch } from "react-router-dom";
-import { IGood } from "../appInterfaces";
-import { BasketContext } from "../pages/Main";
-import PageLoader from "./Loader";
+import { useContext, useEffect, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
+import { IGood } from 'company-app';
+import { BasketContext } from '../pages/Main';
+import PageLoader from './Loader';
 
 export default function Good(): JSX.Element {
   const { setBasketState } = useContext(BasketContext);

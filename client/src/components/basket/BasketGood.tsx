@@ -1,7 +1,7 @@
-import { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { IBasketGood, IBasketGoodProps, IGood } from "../../appInterfaces";
-import { BasketContext } from "../../pages/Main";
+import { BaseSyntheticEvent, useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { IBasketGood, IBasketGoodProps, IGood } from 'company-app';
+import { BasketContext } from '../../pages/Main';
 
 export default function BasketGood({ good, setTotalPrice, setBasketGoods }: IBasketGoodProps, ): JSX.Element {
   const { basketState, setBasketState } = useContext(BasketContext);

@@ -1,7 +1,7 @@
-import { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
-import { IBasketFormProps } from "../../appInterfaces";
-import basketFormValidate from "../../helpers/basketFormValidate";
-import { BasketContext } from "../../pages/Main";
+import { BaseSyntheticEvent, useContext, useEffect, useState } from 'react';
+import { IBasketFormProps } from 'company-app';
+import basketFormValidate from '../../helpers/basketFormValidate';
+import { BasketContext } from '../../pages/Main';
 
 export default function BasketForm({ basketGoods, totalPrice, setBasketGoods }: IBasketFormProps ): JSX.Element {
   const [ formState, setFormState] = useState({ name: '', phone: '', email: '', goods: basketGoods, totalPrice: totalPrice});

@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { IGoodListState } from "../appInterfaces";
-import { GoodRequestContext } from "../pages/Main";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { IGoodListState } from 'company-app';
+import { GoodRequestContext } from '../pages/Main';
 
 export default function MainCategories(): JSX.Element {
   const { setGoodListState } = useContext(GoodRequestContext);

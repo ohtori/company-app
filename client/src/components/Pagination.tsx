@@ -1,7 +1,7 @@
-import { BaseSyntheticEvent, useCallback, useContext, useEffect, useState } from "react";
-import { IGoodListState } from "../appInterfaces";
-import createRequestQuery from "../helpers/createRequestQuery";
-import { GoodRequestContext } from "../pages/Main";
+import { BaseSyntheticEvent, useCallback, useContext, useEffect, useState } from 'react';
+import { IGoodListState } from 'company-app';
+import createRequestQuery from '../helpers/createRequestQuery';
+import { GoodRequestContext } from '../pages/Main';
 
 export default function Pagination(): JSX.Element | null {
   const [pages, setPages] = useState<JSX.Element[]>([]);

@@ -1,5 +1,5 @@
 import { BaseSyntheticEvent, useContext, useState } from 'react';
-import { IGoodListState, ISelectProps } from '../../appInterfaces';
+import { IGoodListState, ISelectProps } from 'company-app';
 import useToggleHide from '../../hooks/useToggleHide';
 import { GoodRequestContext } from '../../pages/Main';
 

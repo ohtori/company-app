@@ -1,4 +1,4 @@
-import { IGoodListState } from "../appInterfaces";
+import { IGoodListState } from 'company-app';
 
 export default function createRequestQuery(quantity: string | undefined, sale: boolean | undefined, goodListState: IGoodListState): string {
   let reqParams = `quantity=${quantity ? quantity : goodListState.quantity}`;

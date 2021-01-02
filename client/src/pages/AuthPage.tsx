@@ -1,6 +1,6 @@
 import { BaseSyntheticEvent, useContext, useState } from 'react';
 import { AuthContext } from '../App';
-import { IAuth, IAuthErrors } from '../appInterfaces';
+import { IAuth, IAuthErrors } from 'company-app';
 import authFormValidate from '../helpers/authValidate';
 
 

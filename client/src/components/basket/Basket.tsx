@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
-import { IGood } from "../../appInterfaces";
-import { BasketContext } from "../../pages/Main";
-import BasketForm from "./BasketForm";
-import BasketGood from "./BasketGood";
+import { useContext, useState } from 'react';
+import { IGood } from 'company-app';
+import { BasketContext } from '../../pages/Main';
+import BasketForm from './BasketForm';
+import BasketGood from './BasketGood';
 
 export default function Basket(): JSX.Element {
   const { basketState } = useContext(BasketContext);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [ basketGoods, setBasketGoods ] = useState([]);  
+  const [ basketGoods, setBasketGoods ] = useState([]); 
   
   return (
     <>

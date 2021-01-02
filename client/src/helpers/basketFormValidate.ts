@@ -1,4 +1,4 @@
-import { IBasketFormState } from "../appInterfaces";
+import { IBasketFormState } from 'company-app';
 
 export default function basketFormValidate(formState: IBasketFormState) {
   if (formState.name.length < 2) {

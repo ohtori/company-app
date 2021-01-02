@@ -1,4 +1,4 @@
-import { IGoodListState } from "../appInterfaces";
+import { IGoodListState } from 'company-app';
 import { initialGoodListState } from '../pages/Main';
 
 export default function goodListReducer(state: IGoodListState, action: {type: string, payload: any}) {

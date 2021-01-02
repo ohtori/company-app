@@ -1,4 +1,4 @@
-import { IGoodListState } from "../appInterfaces";
+import { IGoodListState } from 'company-app';
 
 export default function getCategory(categoryTitle: string, setGoodListState: Function) {
   fetch(`/get-category?category=${categoryTitle}`)

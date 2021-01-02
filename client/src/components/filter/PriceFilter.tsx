@@ -1,6 +1,6 @@
-import { BaseSyntheticEvent, useContext, useState } from "react"
-import { IGoodListState } from "../../appInterfaces";
-import { GoodRequestContext } from "../../pages/Main";
+import { BaseSyntheticEvent, useContext, useState } from 'react';
+import { IGoodListState } from 'company-app';
+import { GoodRequestContext } from '../../pages/Main';
 
 export default function SidebaFilter(): JSX.Element {
   const [priceState, setPriceState] = useState({ from: '0', by: '0' });

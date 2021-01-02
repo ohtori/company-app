@@ -8,7 +8,7 @@ import HeadBasket from '../components/basket/HeadBascet';
 import MainCategories from '../components/MainCategories';
 import GoodList from '../components/GoodList';
 import Basket from '../components/basket/Basket';
-import { IBasketContext, IGood, IGoodListContext } from '../appInterfaces';
+import { IBasketContext, IGood, IGoodListContext } from 'company-app';
 import Pagination from '../components/Pagination';
 import Good from '../components/Good';
 import '../assets/css/style.css';

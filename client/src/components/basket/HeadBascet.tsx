@@ -1,6 +1,6 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { BasketContext } from "../../pages/Main";
+import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { BasketContext } from '../../pages/Main';
 
 export default function HeadBasket() {
   const { basketState, setBasketState } = useContext(BasketContext);

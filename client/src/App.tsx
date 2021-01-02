@@ -1,6 +1,8 @@
+/// <reference path="./appInterfaces.d.ts" />
+
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { IUser, IAuthContext } from './appInterfaces';
+import { IUser, IAuthContext } from 'company-app';
 import PageLoader from './components/Loader';
 
 const Admin = lazy(() => import('./pages/Admin'));
