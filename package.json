@@ -8,9 +8,11 @@
     "compille": "tsc",
     "build_client": "npm run build --prefix client",
     "dev_client": "npm start --prefix client",
-    "server_prod": "cross-env MODE=production node index",
+    "db_repair": "cd C:/PROGRA~1/mongo/bin & \"C:/Program Files/mongo/bin/mongod.exe\" --dbpath . --repair",
+    "db_start": "cd C:/PROGRA~1/mongo/bin & \"C:/Program Files/mongo/bin/mongod.exe\" --dbpath . --storageEngine mmapv1",
     "server_dev": "cross-env MODE=development node index",
-    "dev": "concurrently \"npm run server_dev \" \"npm run dev_client\""
+    "dev": "concurrently \"npm run db_start\" \"npm run server_dev \" \"npm run dev_client\"",
+    "start": "concurrently \"cross-env MODE=production node index\" \"npm run db_start\""
   },
   "author": "ohtori <ohtori@mail.ru>",
   "license": "ISC",

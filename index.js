@@ -41,9 +41,11 @@ async function start() {
             : config.get('serverConfig.devPort');
         if (process.env.MODE === 'production') {
             const httpsOptions = {
-                key: fs.readFileSync("./server.key"),
-                cert: fs.readFileSync("./server.cert") //RU путь к сертификату
+                key: fs.readFileSync("./https-keys/server.key"),
+                cert: fs.readFileSync("./https-keys/server.cert"),
+                ca: fs.readFileSync("./https-keys/server.csr") //RU путь к сертификату
             };
+            console.log(httpsOptions);
             https.createServer(httpsOptions, app).listen(PORT, () => console.log(`Server started on port ${PORT}`));
             await mongoose.connect(config.get('dbConfig.url'), {
                 useNewUrlParser: true,

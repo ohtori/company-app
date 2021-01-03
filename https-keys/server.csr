@@ -1,0 +1,62 @@
+Certificate Request:
+    Data:
+        Version: 1 (0x0)
+        Subject: C = RU, ST = UR, L = Izhevsk, O = Ohtori, OU = Main, CN = localhost, emailAddress = ohtori@mail.ru
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:cd:7e:dc:94:ed:2f:81:22:b1:96:1a:86:a3:76:
+                    ef:1b:bc:23:0f:03:9c:77:7c:81:1c:0a:5a:c4:82:
+                    8d:ee:65:04:4e:fb:9c:86:70:eb:07:fb:0b:65:59:
+                    3a:75:19:6e:53:72:5c:df:2b:72:de:d9:33:87:af:
+                    5e:f7:16:2a:7b:7a:d0:32:5e:f0:38:6a:3d:4e:e5:
+                    eb:36:fb:cc:aa:75:93:90:bb:4f:7d:9b:bf:a2:1c:
+                    0d:b3:17:91:23:f6:4e:77:db:f8:f1:15:e4:4c:e9:
+                    ab:5a:30:81:45:09:c4:87:0f:e9:88:3f:a5:cd:83:
+                    05:87:7e:ab:a8:7c:80:84:cb:b0:0b:7f:9d:6e:82:
+                    be:d3:96:07:87:9e:6b:11:5f:f6:79:51:f0:1f:0a:
+                    77:f7:e0:74:04:5c:a4:d3:f9:b5:e7:ba:da:02:36:
+                    05:b3:d3:e9:00:e3:2d:68:ba:ca:2e:2e:a9:73:88:
+                    bd:66:4a:00:df:9f:13:6c:47:c8:27:f7:7b:b0:d8:
+                    45:f1:e2:4a:ee:06:6e:fd:36:69:4d:3f:e5:6b:bd:
+                    78:66:96:07:d4:0a:02:4a:04:3e:db:c2:90:d6:f4:
+                    b5:ee:7b:63:f8:f9:df:29:d7:aa:f6:de:38:c3:79:
+                    4a:6b:38:65:14:83:a7:36:c6:f4:d9:e5:9c:44:68:
+                    54:55
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha256WithRSAEncryption
+         62:19:51:e3:38:2a:4d:17:61:c0:00:cd:8c:d9:d0:80:e9:94:
+         de:5f:67:ce:f8:e7:ee:f3:7c:72:38:5b:da:a3:bc:55:7c:b5:
+         e6:ec:36:d6:92:d0:90:2c:02:e6:85:d0:aa:35:bb:15:6b:b7:
+         fe:03:81:3a:a2:56:99:21:6c:bd:28:91:bd:95:96:8d:ea:cf:
+         a8:95:29:7f:6b:49:ce:58:e7:fe:fe:45:b1:3a:e5:bb:9c:3f:
+         e8:15:79:99:20:12:cc:bc:40:cf:b0:07:aa:f7:3a:96:aa:03:
+         4e:59:1d:bb:73:f1:20:1a:c0:28:ed:9d:37:5d:dc:e1:b4:c1:
+         e8:70:d5:68:9d:c9:88:f6:fe:6f:99:93:f7:7b:aa:73:20:4c:
+         0f:73:8b:f3:a9:24:7c:67:e5:86:59:6d:83:aa:b5:98:10:90:
+         d0:36:70:aa:a9:16:c1:27:1b:60:51:e7:11:50:c2:c7:cb:29:
+         6b:fe:5e:db:a7:a1:15:c0:4f:9d:02:f9:69:6e:f9:4a:7c:53:
+         97:36:c7:bd:af:9a:ed:27:6a:c4:7c:bb:79:7f:99:14:9a:1e:
+         51:6b:3b:c9:ef:66:33:dc:43:30:a4:1e:87:1c:03:85:97:48:
+         39:35:e7:b4:33:e9:7b:ff:86:d3:86:ac:27:9d:e5:4b:2b:66:
+         46:17:39:51
+-----BEGIN CERTIFICATE REQUEST-----
+MIICxDCCAawCAQAwfzELMAkGA1UEBhMCUlUxCzAJBgNVBAgMAlVSMRAwDgYDVQQH
+DAdJemhldnNrMQ8wDQYDVQQKDAZPaHRvcmkxDTALBgNVBAsMBE1haW4xEjAQBgNV
+BAMMCWxvY2FsaG9zdDEdMBsGCSqGSIb3DQEJARYOb2h0b3JpQG1haWwucnUwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDNftyU7S+BIrGWGoajdu8bvCMP
+A5x3fIEcClrEgo3uZQRO+5yGcOsH+wtlWTp1GW5TclzfK3Le2TOHr173Fip7etAy
+XvA4aj1O5es2+8yqdZOQu099m7+iHA2zF5Ej9k532/jxFeRM6ataMIFFCcSHD+mI
+P6XNgwWHfquofICEy7ALf51ugr7TlgeHnmsRX/Z5UfAfCnf34HQEXKTT+bXnutoC
+NgWz0+kA4y1ousouLqlziL1mSgDfnxNsR8gn93uw2EXx4kruBm79NmlNP+VrvXhm
+lgfUCgJKBD7bwpDW9LXue2P4+d8p16r23jjDeUprOGUUg6c2xvTZ5ZxEaFRVAgMB
+AAGgADANBgkqhkiG9w0BAQsFAAOCAQEAYhlR4zgqTRdhwADNjNnQgOmU3l9nzvjn
+7vN8cjhb2qO8VXy15uw21pLQkCwC5oXQqjW7FWu3/gOBOqJWmSFsvSiRvZWWjerP
+qJUpf2tJzljn/v5FsTrlu5w/6BV5mSASzLxAz7AHqvc6lqoDTlkdu3PxIBrAKO2d
+N13c4bTB6HDVaJ3JiPb+b5mT93uqcyBMD3OL86kkfGflhlltg6q1mBCQ0DZwqqkW
+wScbYFHnEVDCx8spa/5e26ehFcBPnQL5aW75SnxTlzbHva+a7SdqxHy7eX+ZFJoe
+UWs7ye9mM9xDMKQehxwDhZdIOTXntDPpe/+G04asJ53lSytmRhc5UQ==
+-----END CERTIFICATE REQUEST-----

@@ -48,9 +48,12 @@ async function start() {
 
     if (process.env.MODE === 'production') {
       const httpsOptions = {
-        key: fs.readFileSync("./server.key"), // путь к ключу
-        cert: fs.readFileSync("./server.cert") //RU путь к сертификату
+        key: fs.readFileSync("./https-keys/server.key"),
+        cert: fs.readFileSync("./https-keys/server.cert"),
+        ca: fs.readFileSync("./https-keys/server.csr")
       }
+      console.log(httpsOptions);
+      
       https.createServer(httpsOptions, app).listen(PORT, () => console.log(`Server started on port ${PORT}`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
@@ -74,7 +77,7 @@ async function start() {
 
 if (cluster.isMaster) {
   for (let i = 0; i < cpus; i++ )  {
-    cluster.fork()
+    cluster.fork();
   }
 
   cluster.on('exit', (worker: any, code: number, signal: any) => {
