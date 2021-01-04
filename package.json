@@ -11,7 +11,7 @@
     "db_repair": "cd C:/PROGRA~1/mongo/bin & \"C:/Program Files/mongo/bin/mongod.exe\" --dbpath . --repair",
     "db_start": "cd C:/PROGRA~1/mongo/bin & \"C:/Program Files/mongo/bin/mongod.exe\" --dbpath . --storageEngine mmapv1",
     "server_dev": "cross-env MODE=development node index",
-    "server_prod": "cross-env MODE=development node index",
+    "server_prod": "cross-env MODE=production node index",
     "dev": "concurrently \"npm run db_start\" \"npm run server_dev \" \"npm run dev_client\"",
     "start-unsecure": "concurrently \"cross-env MODE=production-unsecure node index\" \"npm run db_start\"",
     "start": "concurrently \"cross-env MODE=production node index\" \"npm run db_start\""
