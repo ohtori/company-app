@@ -17,8 +17,6 @@ const goodRouter = require('./routes/goodRouter');
 const getCategoriesRouter = require('./routes/getCategoriesRouter');
 const getCategoryRouter = require('./routes/getCategoryRouter');
 
-//For start on win32:
-//mongod --dbpath "mongo db root(bin) folder for examle '.'" --storageEngine "mmapv1"
 //For export:
 //mongoexport -d company-entertainment-db -c "collection name" -o C:\Users\Ohtori\company-app\dbDump\out.json
 async function start() {
@@ -52,9 +50,15 @@ async function start() {
         cert: fs.readFileSync("./https-keys/server.cert"),
         ca: fs.readFileSync("./https-keys/server.csr")
       }
-      console.log(httpsOptions);
       
       https.createServer(httpsOptions, app).listen(PORT, () => console.log(`Server started on port ${PORT}`));
+      await mongoose.connect(config.get('dbConfig.url'), {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+      });
+    } else if (process.env.MODE === 'production-unsecure') {
+      app.listen(80, () => console.log(`Server started on port ${PORT}`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
