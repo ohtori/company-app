@@ -44,6 +44,8 @@ async function start() {
       ? config.get('serverConfig.HTTPSPort') 
       : config.get('serverConfig.devPort');
 
+      console.log(process.env.MODE);
+      
     if (process.env.MODE === 'production') {
       const httpsOptions = {
         key: fs.readFileSync("./https-keys/server.key"),
@@ -57,8 +59,9 @@ async function start() {
         useUnifiedTopology: true,
         useCreateIndex: true
       });
-    } else if (process.env.MODE === 'production-unsecure') {
-      app.listen(80, () => console.log(`Server started on port ${PORT}`));
+    } 
+    if (process.env.MODE === 'production-unsecure') {
+      app.listen(80, () => console.log(`Server started on port 80`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
