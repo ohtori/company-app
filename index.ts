@@ -33,7 +33,7 @@ async function start() {
     app.get('/get-category', getCategoryRouter);
     app.get('/images', express.static(path.join(__dirname, 'client', 'public')));
   
-    if (process.env.MODE === 'production') {
+    if (process.env.MODE === 'production' || process.env.MODE === 'production-unsecure') {
       app.use(express.static(path.join(__dirname, 'client', 'build')));
       app.get('*', (req: Request, res: Response) => {
         res.status(200).sendFile(path.join(__dirname, '/client/build/index.html'));
@@ -43,8 +43,6 @@ async function start() {
     const PORT = process.env.MODE === 'production' 
       ? config.get('serverConfig.HTTPSPort') 
       : config.get('serverConfig.devPort');
-
-      console.log(process.env.MODE);
       
     if (process.env.MODE === 'production') {
       const httpsOptions = {
