@@ -39,9 +39,8 @@ async function start() {
             : config.get('serverConfig.devPort');
         if (process.env.MODE === 'production') {
             const httpsOptions = {
-                key: fs.readFileSync("./https-keys/server.key"),
-                cert: fs.readFileSync("./https-keys/server.cert"),
-                ca: fs.readFileSync("./https-keys/server.csr")
+                key: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/privkey.pem"),
+                cert: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/fullchain.pem")
             };
             https.createServer(httpsOptions, app).listen(PORT, () => console.log(`Server started on port ${PORT}`));
             await mongoose.connect(config.get('dbConfig.url'), {
