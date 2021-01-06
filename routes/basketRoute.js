@@ -9,7 +9,7 @@ async function basketRoute(req, res) {
             secure: true,
             auth: {
                 user: 'ohtoriaketi@gmail.com',
-                pass: 'tjbxfkcubitcyhcm' // application password (not user)
+                pass: require('config').get('gmail_app_pswd') // application password (not user)
             }
         });
         req.on('data', async (chunk) => {
