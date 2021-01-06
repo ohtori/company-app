@@ -39,21 +39,7 @@ async function start() {
         res.status(200).sendFile(path.join(__dirname, '/client/build/index.html'));
       });
     }
-      
-    if (process.env.MODE === 'production') {
-      const httpsOptions = {
-        key: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/privkey.pem"), //local ./https-keys/server.key
-        cert: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/fullchain.pem"), // local ./https-keys/server.cert
-        // ca: fs.readFileSync("./https-keys/server.csr") //local ./https-keys/server.csr
-      }
-      
-      https.createServer(httpsOptions, app).listen(config.get('serverConfig.HTTPSPort'), () => console.log(`Server started on secure port`));
-      await mongoose.connect(config.get('dbConfig.url'), {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true
-      });
-    } else if (process.env.MODE === 'production-unsecure') {
+     if (process.env.MODE === 'production') {
       app.listen(config.get('serverConfig.HTTPPort'), () => console.log(`Server started on unsecure port`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,

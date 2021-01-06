@@ -35,18 +35,6 @@ async function start() {
             });
         }
         if (process.env.MODE === 'production') {
-            const httpsOptions = {
-                key: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/privkey.pem"),
-                cert: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/fullchain.pem"),
-            };
-            https.createServer(httpsOptions, app).listen(config.get('serverConfig.HTTPSPort'), () => console.log(`Server started on secure port`));
-            await mongoose.connect(config.get('dbConfig.url'), {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-                useCreateIndex: true
-            });
-        }
-        else if (process.env.MODE === 'production-unsecure') {
             app.listen(config.get('serverConfig.HTTPPort'), () => console.log(`Server started on unsecure port`));
             await mongoose.connect(config.get('dbConfig.url'), {
                 useNewUrlParser: true,
