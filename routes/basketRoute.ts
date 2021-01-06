@@ -10,13 +10,12 @@ const nodemailer = require('nodemailer');
       secure: true,
       auth: {
           user: 'ohtoriaketi@gmail.com',
-          pass: 'tjbxfkcubitcyhcm' // application password (not user)
+          pass: require('config').get('gmail_app_pswd') // application password (not user)
       }
     });
 
     req.on('data', async (chunk) => {
       let body = JSON.parse(`${chunk}`);
-
       let info = await transporter.sendMail({
         from: 'merzlyakoff.ilya@yandex.ru', // sender address
         to: `ohtori@mail.ru, ${body.email}`, // list of receivers

@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
 
-const https = require('https');
-const fs = require('fs');
 const cluster = require('cluster');
 const path = require('path');
 const cpus = require('os').cpus().length;
