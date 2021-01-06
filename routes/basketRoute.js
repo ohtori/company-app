@@ -4,10 +4,12 @@ const nodemailer = require('nodemailer');
 async function basketRoute(req, res) {
     try {
         let transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
                 user: 'ohtoriaketi@gmail.com',
-                pass: '461895300677' // generated ethereal password
+                pass: 'tjbxfkcubitcyhcm' // application password (not user)
             }
         });
         req.on('data', async (chunk) => {
