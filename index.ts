@@ -39,18 +39,15 @@ async function start() {
         res.status(200).sendFile(path.join(__dirname, '/client/build/index.html'));
       });
     }
-  
-    const PORT = process.env.MODE === 'production' 
-      ? config.get('serverConfig.HTTPSPort') 
-      : config.get('serverConfig.devPort');
       
     if (process.env.MODE === 'production') {
       const httpsOptions = {
-        key: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/privkey.pem"),
-        cert: fs.readFileSync("/etc/letsencrypt/live/ohtori-company.site/fullchain.pem")
+        key: fs.readFileSync("./https-keys/server.key"),
+        cert: fs.readFileSync("./https-keys/server.cert"),
+        ca: fs.readFileSync("./https-keys/server.csr"),
       }
       
-      https.createServer(httpsOptions, app).listen(PORT, () => console.log(`Server started on port ${PORT}`));
+      https.createServer(httpsOptions, app).listen(config.get('serverConfig.HTTPSPort'), () => console.log(`Server started on secure port`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -58,14 +55,14 @@ async function start() {
       });
     } 
     if (process.env.MODE === 'production-unsecure') {
-      app.listen(80, () => console.log(`Server started on port 80`));
+      app.listen(config.get('serverConfig.HTTPPort'), () => console.log(`Server started on unsecure port`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
       });
     } else {
-      app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+      app.listen(config.get('serverConfig.devPort') , () => console.log(`Server started on dev port`));
       await mongoose.connect(config.get('dbConfig.url'), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
