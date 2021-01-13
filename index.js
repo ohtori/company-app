@@ -31,8 +31,6 @@ async function start() {
             app.get('*', (req, res) => {
                 res.status(200).sendFile(path.join(__dirname, '/client/build/index.html'));
             });
-        }
-        if (process.env.MODE === 'production') {
             app.listen(config.get('serverConfig.HTTPPort'), () => console.log(`Server started on prod port`));
             await mongoose.connect(config.get('dbConfig.url'), {
                 useNewUrlParser: true,
