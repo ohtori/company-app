@@ -116,6 +116,7 @@ html, body, #root {
   padding-bottom: 20px;
   min-width: 230px;
   position: relative;
+  box-sizing: border-box;
 }
 
 .sidebar h3 {
@@ -137,7 +138,7 @@ html, body, #root {
   padding: 7px;
   position: fixed;
   border-right: none;
-  top: 150px;
+  top: 250px;
   left: 230px;
   display: none;
   transform: rotate(180deg);
