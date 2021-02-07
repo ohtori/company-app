@@ -7,14 +7,14 @@ export default function Searsh(): JSX.Element {
   const { setGoodListState } = useContext(GoodRequestContext);
   const history = useHistory();
 
-  const inputHandler = (e: BaseSyntheticEvent) => {
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 300) {
       return e.preventDefault();
     }
     setSearch(e.target.value);
   }
 
-  const submitHandler = (e: BaseSyntheticEvent) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch('');
     history.push('/search');

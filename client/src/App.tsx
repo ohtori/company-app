@@ -1,4 +1,4 @@
-/// <reference path="./appInterfaces.d.ts" />
+
 
 import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';

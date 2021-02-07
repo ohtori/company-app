@@ -9,7 +9,7 @@ export default function Pagination(): JSX.Element | null {
   let reqParams = createRequestQuery('Some String', false, goodListState);
   reqParams += '&pagination=true';  
 
-  const clickHandler = useCallback((e: BaseSyntheticEvent, operation: string, value?: number) => {
+  const clickHandler = useCallback((e: React.MouseEvent<HTMLElement>, operation: string, value?: number) => {
     e.preventDefault();
     switch (operation) {
       case 'min':

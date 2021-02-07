@@ -1,7 +1,8 @@
-import { BaseSyntheticEvent, useContext, useState } from 'react';
+import React, { BaseSyntheticEvent, useContext, useState } from 'react';
 import { AuthContext } from '../App';
 import { IAuth, IAuthErrors } from 'company-app';
 import authFormValidate from '../helpers/authValidate';
+
 
 
 export function AuthPage(): JSX.Element {
@@ -10,13 +11,13 @@ export function AuthPage(): JSX.Element {
 
   const {login} = useContext(AuthContext);  
 
-  const inputHandler = (e: BaseSyntheticEvent) => {
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAuthState((prev: IAuth) => {
       return { ...prev, [e.target.name]: e.target.value }
     });
   }
 
-  const authSubmit = async (e: BaseSyntheticEvent) => {
+  const authSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!authFormValidate(authState, setAuthErrors)) return;
