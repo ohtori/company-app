@@ -1,0 +1,14 @@
+version: "2"
+services:
+  company:
+    image: company
+    ports:
+      - "8080:8080"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    volumes:
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"
